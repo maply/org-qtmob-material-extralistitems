@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/org/qtmob/material/extralistitems">
+        <file>qmldir</file>
+        <file>ImageListItem.qml</file>
+    </qresource>
+</RCC>
