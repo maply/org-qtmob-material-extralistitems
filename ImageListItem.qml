@@ -146,11 +146,12 @@ ListItem.BaseListItem {
                 Layout.fillWidth: true
                 Layout.preferredHeight: implicitHeight * maximumLineCount/subLabel.lineCount
                 visible: subIcon.visible || subLabel.visible
-                spacing: subIcon.visible ? Units.dp(8) : 0
+                spacing: Units.dp(8)
 
-                Icon {
+                Image {
                     id: subIcon
-                    size: visible ? Units.dp(16) : 0
+                    width: visible ? Units.dp(16) : 0
+                    height: width
                     visible: source
                 }
 
