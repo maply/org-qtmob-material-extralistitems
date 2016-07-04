@@ -142,11 +142,13 @@ ListItem.BaseListItem {
             }
 
             Row {
+                id: subLabelRow
 
                 Layout.fillWidth: true
+                Layout.preferredWidth: label.width
                 Layout.preferredHeight: implicitHeight * maximumLineCount/subLabel.lineCount
                 visible: subIcon.visible || subLabel.visible
-                spacing: Units.dp(8)
+                spacing: subIcon.visible ? Units.dp(8) : 0
 
                 Image {
                     id: subIcon
@@ -162,7 +164,7 @@ ListItem.BaseListItem {
                     elide: Text.ElideRight
                     wrapMode: Text.WordWrap
                     style: "body1"
-                    width: parent.width - subIcon.size
+                    width: parent.width - subIcon.width
                     visible: text != "" && !contentItem.showing
                     maximumLineCount: listItem.maximumLineCount - 1
                 }
