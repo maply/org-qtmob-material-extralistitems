@@ -6,7 +6,7 @@ import Material.ListItems 0.1 as ListItem
 ListItem.BaseListItem {
     id: listItem
 
-    height: maximumLineCount == 2 ? Units.dp(72) : Units.dp(88)
+    height: Units.dp(80)
     width: parent.width
     margins: 0
 
@@ -54,6 +54,25 @@ ListItem.BaseListItem {
 
             visible: true
 
+            Item {
+                id: defaultImageBox
+                visible: !(image.visible)
+
+                anchors.fill: parent
+
+                Rectangle {
+                    id: defaultImageBackground
+                    anchors.fill: parent
+                    color: "grey"
+                }
+
+                Image {
+                    id: defaultImage
+                    width: parent.width / 4
+                    height: width
+                    anchors.centerIn: parent
+                }
+            }
             Image {
                 id: image
                 property bool valid: imageSource !== ""
@@ -68,26 +87,6 @@ ListItem.BaseListItem {
                 height: parent.height
                 fillMode: Image.PreserveAspectCrop
                 visible: source != ""
-            }
-            Item {
-                id: defaultImageBox
-                visible: !(image.visible)
-
-                width: parent.width
-                height: parent.height
-
-                Rectangle {
-                    id: defaultImageBackground
-                    anchors.fill: parent
-                    color: "grey"
-                }
-
-                Image {
-                    id: defaultImage
-                    width: parent.width / 4
-                    height: width
-                    anchors.centerIn: parent
-                }
             }
         }
 
