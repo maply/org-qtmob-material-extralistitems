@@ -153,7 +153,7 @@ ListItem.BaseListItem {
                     id: subIcon
                     width: visible ? Units.dp(16) : 0
                     height: width
-                    visible: source !== ""
+                    visible: source != "" && !contentItem.showing
                 }
 
                 Label {
